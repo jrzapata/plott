@@ -8,5 +8,11 @@ class SplashController < ApplicationController
         else
             puts "I'm not logged in"
         end
-    end  
+    end
+
+
+    def destroy
+      current_user.destroy
+      redirect_to new_user_session
+    end
 end
