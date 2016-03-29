@@ -1,0 +1,9 @@
+<% @vendors.each do |info| %>
+
+<p><%= info.first_name %> <%= info.last_name %></p>
+
+
+
+<% end %>
+
+<%= link_to "Create a listing for your spots", new_vendor_spot_path(@vendors) %>
