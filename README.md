@@ -1,2 +1,0 @@
-# plott
-final project
