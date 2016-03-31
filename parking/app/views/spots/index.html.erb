@@ -1,0 +1,12 @@
+<h1>Index Page for Spots</h1>
+
+<% @spots.each do |spot| %>
+  <p>
+    <a href="/spots/<%= spot.id %>">  <%= spot.address %>
+    <%= spot.zipcode %>
+    <%= spot.address %>
+    <%= spot.available %>
+    <%= spot.price %>
+    <%= spot.description %>
+  </p></a>
+<% end %>

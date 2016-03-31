@@ -1,0 +1,19 @@
+<p>
+  <%= @customer.first_name %>
+  <%= @customer.last_name %>
+  <%= @customer.make %>
+  <%= @customer.model %>
+</p>
+
+
+this is the index page
+<p>
+
+<% @spots.each do |spot| %>
+  <a href="/customers/<%= @customer.id %>/spots/<%=spot.id %>"><%= spot.address%>
+  <%= spot.zipcode %>
+  <%= spot.price %>
+  <%= spot.description %></a>
+</p>
+
+<% end %>

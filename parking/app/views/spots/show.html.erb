@@ -1,0 +1,12 @@
+
+<p>
+  <%= @spots.address%>
+  <%= @spots.zipcode %>
+  <%= @spots.price %>
+  <%= @spots.description %>
+</p>
+
+<%= form_for [@customer, @spots] do |form| %>
+<%= form.hidden_field :available, :value => false %></br>
+<%= form.submit %>
+<% end %>

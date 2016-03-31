@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  resources :spots
+
   resources :vendors do
     resources :spots
   end
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
   resources :customers do
     resources :spots
   end
+  root "spots#index"
 
 end
 
