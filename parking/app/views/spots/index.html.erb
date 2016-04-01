@@ -17,16 +17,17 @@
     <%= spot.description %>
   </p></a>
 <% end %>
-    <% @spots.each do |spot| %>
+
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
 </div>
+<% @spots.each do |spot| %>
 <script type="text/javascript">
 handler = Gmaps.build('Google');
 handler.buildMap({
   provider: {
-    disableDefaultUI: false
-    getCenter()
+    disableDefaultUI: false,
+    maxZoom: null
     // pass in other Google Maps API options here
   },
   internal: {
@@ -40,12 +41,14 @@ function(){
     {
       "lat": <%=spot.latitude%>,
       "lng": <%=spot.longitude%>,
-      "infowindow": "hello!"
+      "infowindow": "$<%=spot.price%>: <%=spot.description%>"
 
     }
   ]);
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();
+  handler.getMap().setZoom(11);
+
 }
 );
 </script>
