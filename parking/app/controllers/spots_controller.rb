@@ -7,7 +7,11 @@ class SpotsController < ApplicationController
   end
 
   def show
+    if !@customer
+      @spot = Spot.find(params[:id])
+    else
     @customer = Customer.find(params[:customer_id])
+  end
   end
 
   def new
@@ -47,5 +51,5 @@ class SpotsController < ApplicationController
   end
 
   def spot_params
-    params.require(:spot).permit(:address, :zipcode, :available, :price, :description)
+    params.require(:spot).permit(:address, :zipcode, :available, :price, :description, :image)
   end

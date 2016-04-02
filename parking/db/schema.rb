@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160331185904) do
+ActiveRecord::Schema.define(version: 20160401183257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,15 +24,19 @@ ActiveRecord::Schema.define(version: 20160331185904) do
   end
 
   create_table "spots", force: :cascade do |t|
-    t.integer "vendor_id"
-    t.integer "customer_id"
-    t.string  "address"
-    t.integer "zipcode"
-    t.boolean "available"
-    t.integer "price"
-    t.text    "description"
-    t.float   "latitude"
-    t.float   "longitude"
+    t.integer  "vendor_id"
+    t.integer  "customer_id"
+    t.string   "address"
+    t.integer  "zipcode"
+    t.boolean  "available"
+    t.integer  "price"
+    t.text     "description"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "spots", ["customer_id"], name: "index_spots_on_customer_id", using: :btree

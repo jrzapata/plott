@@ -5,5 +5,6 @@
   Last Name: <%= form.text_field :last_name %></br>
   Make: <%= form.text_field :make %></br>
   Model: <%= form.text_field :model %></br>
+  <%= form.hidden_field :id, :value => current_user.id %>
   <%= form.submit %>
 <% end %>

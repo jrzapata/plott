@@ -1,15 +1,15 @@
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAPS_KEY'] %>&callback=initMap"
-async defer>
-</script>
-
 <p>
   <%= @spots.address%>
   <%= @spots.zipcode %>
   <%= @spots.price %>
   <%= @spots.description %>
 </p>
+<img src="<%= @spots.image %>" alt="" />
 
-<%= form_for [@customer, @spots] do |form| %>
+<%= current_user.id %>
+
+<%= form_for [@customer, @spots], url: customer_spot_path do |form| %>
 <%= form.hidden_field :available, :value => false %></br>
+<%= form.hidden_field :customer_id, :value => current_user.id %></br>
 <%= form.submit %>
 <% end %>

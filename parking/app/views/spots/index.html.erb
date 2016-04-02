@@ -6,17 +6,30 @@
 
 <h1>Index Page for Spots</h1>
 
+<% if current_user %>
+<a href="/vendors/<%=current_user.id%>/spots/new">Create a Listing</a>
+<% else %>
+<a href="/vendors/spots/new">Create a Listing</a>
+<% end %>
+
+
 
 <% @spots.each do |spot| %>
   <p>
-    <a href="/spots/<%= spot.id %>">  <%= spot.address %>
-    <%= spot.zipcode %>
+    <% if current_user %>
+    <a href="/customers/<%=current_user.id%>/spots/<%= spot.id %>">
+      <% else %>
+      <a href="/spots/<%= spot.id %>">
+      <% end %>
     <%= spot.address %>
+    <%= spot.zipcode %>
     <%= spot.available %>
     <%= spot.price %>
     <%= spot.description %>
   </p></a>
 <% end %>
+
+
 
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>

@@ -4,5 +4,6 @@
 <%= form_for @vendor do |form| %>
   First Name: <%= form.text_field :first_name %></br>
   Last Name: <%= form.text_field :last_name %></br>
+  <%= form.hidden_field :id, :value => current_user.id %>
   <%= form.submit %>
 <% end %>

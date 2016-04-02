@@ -5,6 +5,7 @@
   Zipcode: <%= form.number_field :zipcode %></br>
   Price: <%= form.number_field :price %></br>
   Description: <%= form.text_field :description %></br>
+  Upload your spot: <%= form.file_field :image %></br>
   <%= form.hidden_field :available, :value => true %></br>
   <%= form.submit %>
 <% end %>
