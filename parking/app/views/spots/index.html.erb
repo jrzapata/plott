@@ -14,21 +14,23 @@
 <% @spots.each do |spot| %>
   <% if spot.available == false %>
     <% else %>
-  <p>
+  <ul>
     <% if current_user %>
-    <a href="/customers/<%=current_user.id%>/spots/<%= spot.id %>">
+    <li>
+      <a href="/customers/<%=current_user.id%>/spots/<%= spot.id %>">
       <% else %>
       <a href="/spots/<%= spot.id %>">
       <% end %>
-    <%= spot.address %>
-    <%= spot.zipcode %>
-    <%= spot.price %>
-  </p></a>
+    <%= spot.address %>,
+    <%= spot.zipcode %>,
+    $<%= spot.price %>
+  </li>
+</ul></a>
   <% end %>
   <% end %>
 </div>
 <div class="col-md-8">
-  <h2>Map listings</h2>
+  <h2>Map Listings</h2>
   <p>
     Click on marker for more info
   </p>

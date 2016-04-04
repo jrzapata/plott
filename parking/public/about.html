@@ -6,11 +6,10 @@
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="http://code.jquery.com/jquery-2.2.0.min.js" charset="utf-8"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -25,14 +24,14 @@
       <ul class="nav navbar-nav nav pull-right">
       <% if user_signed_in? %>
        <li>
-         <a class="active" href="/">Browse</a>
+         <a class="navbar-brand" href="/">Browse</a>
        </li>
        <% if current_user %>
        <li>
-         <a href="/vendors/<%=current_user.id%>/spots/new" class="nav-item nav-link">Create a Listing</a>
+         <a href="/vendors/<%=current_user.id%>/spots/new" class="navbar-link">Create a Listing</a>
       </li>
       <li>
-         <a href="/customers/new" class="nav-item nav-link">Reserve a spot!</a>
+         <a href="/customers/new" class="navbar-link">Reserve a spot!</a>
          <% else %>
          <% end %>
        </li>
@@ -59,14 +58,3 @@
       </ul>
     </div>
   </nav>
-
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
-<%= yield %>
-
-</body>
-</html>
