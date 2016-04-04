@@ -6,10 +6,15 @@
 </p>
 <img src="<%= @spots.image %>" alt="" />
 
-<%= current_user.id %>
 
+<% if !current_user%>
+<p>
+  Log in or sign up to reserve this spot
+</p>
+<% else %>
 <%= form_for [@customer, @spots], url: customer_spot_path do |form| %>
 <%= form.hidden_field :available, :value => false %></br>
 <%= form.hidden_field :customer_id, :value => current_user.id %></br>
-<%= form.submit %>
+<%= form.submit "Reserve this spot" %>
+<% end %>
 <% end %>

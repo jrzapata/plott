@@ -1,11 +1,33 @@
-<h1>Form for spots</h1>
-
-<%= form_for [@vendor, @spot] do |form| %>
-  Address: <%= form.text_field :address %></br>
-  Zipcode: <%= form.number_field :zipcode %></br>
-  Price: <%= form.number_field :price %></br>
-  Description: <%= form.text_field :description %></br>
-  Upload your spot: <%= form.file_field :image %></br>
-  <%= form.hidden_field :available, :value => true %></br>
-  <%= form.submit %>
-<% end %>
+<div class="container">
+<div class="row">
+  <div class="col-md-6">
+    <h2>Create your spot!</h2>
+    <%= bootstrap_form_for [@vendor, @spot] do |form| %>
+    <div class="row">
+      <div class="form-group col-lg-6">
+      <%= form.text_field :address %></br>
+      <%= form.number_field :zipcode %></br>
+      <%= form.number_field :price %></br>
+    </div>
+    </div>
+      <div class="row">
+      <div class="form-group col-lg-6">
+        <%= form.text_area :description %></br>
+        <%= form.file_field :image, label: "Upload your image" %></br>
+        <%= form.hidden_field :available, :value => true %></br>
+      </div>
+      </div>
+      <div class="row">
+      <div class="form-group col-lg-6">
+      <%= form.submit %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h2>How to list your parking spot</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </div>
+</div>
